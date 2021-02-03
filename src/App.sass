@@ -1,0 +1,190 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body
+  font-family: Helvetica, sans-serif
+
+  a
+    text-decoration: none
+
+//variables
+$mainBlack: #333
+$hoverDarkRed: darkred
+$mainTransition: 0.5s all ease-in-out
+
+//NavBar
+.container
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  margin: 0 auto
+
+  .navBar
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    justify-content: space-between
+    grid-column-gap: 2rem
+    width: 85vw
+    margin: 1rem auto
+
+    .nav-item
+      text-align: center
+      font-size: 1rem
+
+      a
+        color: $mainBlack
+        border-bottom-width: 0
+        transition: $mainTransition
+        position: relative
+
+        &::after
+          content: ""
+          position: absolute
+          bottom: 0
+          width: 0
+          border-bottom: 1.5px solid transparent
+          transition: $mainTransition
+
+        &:hover
+          color: $hoverDarkRed
+
+        &:hover a::after
+          color: $hoverDarkRed
+          width: 100%
+          height: 2px
+          background: $hoverDarkRed
+//border-bottom: 1.5px solid $hoverDarkRed
+
+@media screen and (min-width: 768px)
+  .container
+    .navBar
+      grid-column-gap: 2rem
+      width: 70vw
+      margin: 2rem auto
+
+      .nav-item
+        font-size: 1.5rem
+//end of NavBar
+
+//TodoList
+.todoListContainer
+  width: 85vw
+  margin: 2rem auto
+  text-align: center
+
+  h1
+    margin-bottom: 2rem
+
+  li
+    text-align: left
+
+//end of Todolist
+
+//TodoItem
+.todoItem
+  margin-top: 1rem
+
+.done
+  text-decoration: line-through
+
+
+//end of TodoItem
+
+//AddTodo
+.addTodoContainer
+  width: 85vw
+  margin: 1rem auto
+  text-align: center
+
+  input
+    margin-right: 1rem
+    outline: none
+
+  input[placeholder]
+    margin-left: 0.5rem
+
+//end of AddTodo
+
+//Loader
+
+.loaderContainer
+  display: flex
+  justify-content: center
+  margin: .5rem
+
+  .lds-ring
+    display: inline-block
+    position: relative
+    width: 80px
+    height: 80px
+
+    div
+      box-sizing: border-box
+      display: block
+      position: absolute
+      width: 64px
+      height: 64px
+      margin: 8px
+      border: 8px solid $hoverDarkRed
+      border-radius: 50%
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite
+      border-color: $hoverDarkRed transparent transparent transparent
+
+      &:nth-child(1)
+        animation-delay: -0.45s
+
+      &:nth-child(2)
+        animation-delay: -0.3s
+
+      &:nth-child(3)
+        animation-delay: -0.15s
+
+@keyframes lds-ring
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+//end of Loader
+
+//Modal
+.modalBtnOpen
+  width: 300px
+  padding: 1rem
+  margin: 2rem auto
+
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: rgba(0, 0, 0, 0.5)
+  display: flex
+  justify-content: center
+  padding-top: 5rem
+
+  .modalBody
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    text-align: center
+    padding: 2rem
+    width: 400px
+    border-radius: 5px
+    background: #fff
+    height: 200px
+
+    .modalBtnClose
+      width: 100px
+      align-self: center
+//end of Modal
+
+//ReduxSaga
+
+.reduxSagaContainer
+  width: 75vw
+  margin: 2rem auto
+//end of ReduxSaga
